@@ -11,6 +11,7 @@
 		10A526132182574900E55AE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10A526122182574900E55AE2 /* Assets.xcassets */; };
 		10A526162182574900E55AE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10A526142182574900E55AE2 /* Main.storyboard */; };
 		10A5261F21825C2900E55AE2 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5261E21825C2900E55AE2 /* FilterViewController.swift */; };
+		10A5262121825D6D00E55AE2 /* FilterControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5262021825D6D00E55AE2 /* FilterControlCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		10A526172182574900E55AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10A526182182574900E55AE2 /* Filters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Filters.entitlements; sourceTree = "<group>"; };
 		10A5261E21825C2900E55AE2 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		10A5262021825D6D00E55AE2 /* FilterControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterControlCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				10A5261E21825C2900E55AE2 /* FilterViewController.swift */,
+				10A5262021825D6D00E55AE2 /* FilterControlCell.swift */,
 				10A5260E2182574800E55AE2 /* AppDelegate.swift */,
 				10A526122182574900E55AE2 /* Assets.xcassets */,
 				10A526142182574900E55AE2 /* Main.storyboard */,
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10A5261F21825C2900E55AE2 /* FilterViewController.swift in Sources */,
+				10A5262121825D6D00E55AE2 /* FilterControlCell.swift in Sources */,
 				10A5260F2182574800E55AE2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
