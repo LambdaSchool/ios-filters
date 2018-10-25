@@ -12,7 +12,12 @@ class FilterViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        
+        let filter = Filter(filterName: "CIGaussianBlur")
+        for input in filter.inputs{
+            print(input.name, input.max, input.min)
+        }
     }
     
     @IBOutlet weak var imageView: NSImageView!
