@@ -781,6 +781,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="3Uj-6t-eWs" name="content" keyPath="arrangedObjects." id="EYc-5k-wf9"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -835,6 +838,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="jW4-my-4ua" name="value" keyPath="objectValue.name" id="G1Y-Eu-MDS"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -844,6 +850,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="XfG-lQ-9wD" name="content" keyPath="entriesController.arrangedObjects" id="hDY-h9-euy"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -883,9 +892,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="entriesController" destination="3Uj-6t-eWs" id="cNN-L7-IJ3"/>
                         <outlet property="imageView" destination="445-y5-F5m" id="uVm-II-w5s"/>
                     </connections>
                 </viewController>
+                <userDefaultsController representsSharedInstance="YES" id="fhF-F3-k0M"/>
+                <arrayController objectClassName="NSArray" automaticallyPreparesContent="YES" id="3Uj-6t-eWs">
+                    <connections>
+                        <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="filters" id="8Wq-uj-oEv"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="75" y="761"/>
         </scene>

@@ -8,13 +8,13 @@
 
 import Cocoa
 
-class Filter: NSObject {
+@objc class Filter: NSObject {
     init(filterName name: String) {
         guard let filter = CIFilter(name: name)else {
             fatalError("CIFilter cannot be initialized")
         }
         self.filter = filter
-        
+        self.name = name
         var inputs = [Input]()
         let inputKeys = filter.inputKeys
         for inputKey in inputKeys{
@@ -23,6 +23,8 @@ class Filter: NSObject {
         }
         self.inputs = inputs
     }
-    var filter:CIFilter
-    var inputs: [Input]
+    
+    @objc var name:String
+    @objc var filter:CIFilter
+    @objc var inputs: [Input]
 }

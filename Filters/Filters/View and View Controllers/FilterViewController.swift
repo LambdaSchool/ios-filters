@@ -29,7 +29,6 @@ class FilterViewController: NSViewController {
                 self.imageView.image = NSImage(byReferencing: url)
             }
         }
-
     
     }
     
@@ -37,4 +36,7 @@ class FilterViewController: NSViewController {
     }
     //MARK: - Properties
     @IBOutlet weak var imageView: NSImageView!
+    
+    @IBOutlet var entriesController: NSArrayController!
+    @objc let filters = [Filter(filterName: "CIGaussianBlur")]
 }
