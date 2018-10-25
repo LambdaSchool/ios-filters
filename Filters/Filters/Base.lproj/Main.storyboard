@@ -860,7 +860,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="445-y5-F5m">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="400" verticalCompressionResistancePriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="445-y5-F5m">
                                 <rect key="frame" x="20" y="190" width="375" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="445-y5-F5m" secondAttribute="height" multiplier="3:2" id="71C-Jj-7gz"/>
