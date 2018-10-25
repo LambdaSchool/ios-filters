@@ -16,7 +16,6 @@ class Filter: NSObject {
         self.filter = filter
         
         var inputs = [Input]()
-        
         let inputKeys = filter.inputKeys
         for inputKey in inputKeys{
             guard inputKey != "inputImage" else {continue}
