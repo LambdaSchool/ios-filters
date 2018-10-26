@@ -14,13 +14,13 @@ class Input: NSObject {
         self.name = name
         
         let dictionary = filter.attributes[name] as! [String: Any]
-        self.defaultValue = dictionary["CIAttributeDefault"] as! Double
+        self.value = dictionary["CIAttributeDefault"] as! Double
         self.max = dictionary["CIAttributeSliderMax"] as! Double
         self.min = dictionary["CIAttributeSliderMin"] as! Double
     }
     
     @objc let name:String
-    @objc var defaultValue: Double
+    @objc var value: Double
     @objc let max:Double
     @objc let min:Double
 }

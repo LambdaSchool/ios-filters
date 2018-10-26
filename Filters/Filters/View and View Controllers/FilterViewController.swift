@@ -31,47 +31,45 @@ class FilterViewController: NSViewController{
     }
     
     @IBAction func saveDocumentAs(_ sender: Any?){
+
         
     }
+    
+    //can add functionality to make program faster by creating array of filters with values changed from default
+    //this would prevent the filteringImage to go through all the arrays just for one filter
     @IBAction func updateImage(_ sender: NSSlider?){
-        //sets input equal to the input being edited
-        guard let sender = sender else {return}
-        let inputRow = inputsTableView.row(for: sender)
-        guard inputRow >= 0 else {return}
-        let inputs = inputsController.arrangedObjects as! [Input]
-        let input = inputs[inputRow]
-        print(input.name, input.min, input.max, input.defaultValue, sender.doubleValue)
-        
-        //sets filter equal to the selected filter
-        let filterIndex = filtersTableView.selectedRow
-        guard filterIndex >= 0 else {return}
-        let filters = filtersController.arrangedObjects as! [Filter]
-        let filter = filters[filterIndex]
-        
-        //calls private property filter image
-        imageView.image = filterImage(filter: filter, input: input, inputValue: sender.doubleValue)
-        
-        
+            imageView.image = filterImage()
     }
     //MARK: - Private Properties
-    private func filterImage(filter: Filter, input: Input, inputValue: Double)-> NSImage?{
+
+    private func filterImage() -> NSImage?{
+       //convert NSImage to CIImage for filtering
         guard let image = originalImage,
-            let ciImage = image.ciImage() else {return nil}
-        let ciFilter = filter.filter
-        ciFilter.setValue(ciImage, forKey: "inputImage")
-        ciFilter.setValue(inputValue, forKey: input.name)
+            var inputImage = image.ciImage() else {return nil}
         
-        guard let outputCIImage = ciFilter.outputImage,
-            let outputCGImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else {return nil}
+        //go through filters and apply them
+        let filters = filtersController.arrangedObjects as! [Filter]
+        for filter in filters{
+            let ciFilter = filter.filter
+            let inputs = filter.inputs
+            ciFilter.setValue(inputImage, forKey: "inputImage")
+            for input in inputs{
+                ciFilter.setValue(input.value, forKey: input.name)
+            }
+            inputImage = ciFilter.outputImage!
+        }
+        
+        //convert CIImage to NSImage
+        let outputCIImage = inputImage
+        guard     let outputCGImage = context.createCGImage(outputCIImage, from: outputCIImage.extent) else {return nil}
         let outputSize = NSSize(width: outputCGImage.width, height: outputCGImage.height)
         return NSImage(cgImage: outputCGImage, size: outputSize)
-        
     }
     
     //MARK: - Properties
     private let context = CIContext(options: nil)
     
-    private var originalImage: NSImage?
+    private var originalImage: NSImage!
     
     @IBOutlet weak var filtersTableView: NSTableView!
     @IBOutlet weak var inputsTableView: NSTableView!
