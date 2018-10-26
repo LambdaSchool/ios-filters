@@ -38,6 +38,6 @@ class FilterViewController: NSViewController {
     @IBOutlet weak var filtersTableView: NSTableView!
     @IBOutlet weak var imageView: NSImageView!
     @IBOutlet var entriesController: NSArrayController!
-    @objc let filters = [Filter(filterName: "CIGaussianBlur"),
-                         Filter(filterName: "CIColorControls")]
+    @objc let filters = [Filter(filterName: "CIColorControls"),
+                         Filter(filterName: "CIGaussianBlur")]
 }

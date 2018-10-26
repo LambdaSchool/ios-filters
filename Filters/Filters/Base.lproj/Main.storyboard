@@ -855,6 +855,7 @@
                                             </tableColumns>
                                             <connections>
                                                 <binding destination="3Uj-6t-eWs" name="content" keyPath="arrangedObjects" id="Jfk-XS-ntA"/>
+                                                <binding destination="3Uj-6t-eWs" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="Jfk-XS-ntA" id="ib8-TY-tXF"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -909,7 +910,7 @@
                 </arrayController>
                 <arrayController id="B2Y-0f-AJ8">
                     <connections>
-                        <binding destination="3Uj-6t-eWs" name="contentArray" keyPath="selection.inputs" id="t3b-mh-hdx"/>
+                        <binding destination="3Uj-6t-eWs" name="contentArray" keyPath="selection.inputs" id="lec-cP-N8V"/>
                     </connections>
                 </arrayController>
             </objects>
