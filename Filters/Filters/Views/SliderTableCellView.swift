@@ -23,4 +23,6 @@ class SliderTableCellView: NSTableCellView {
         // Drawing code here.
     }
     
+    // Dont need this class if we're using binding.
+    
 }

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Filter: NSObject, NSTableViewDataSource {    // if want to use binding, model must be class of tyoe NSObject
+class Filter: NSObject {//, NSTableViewDataSource {    // if want to use binding, model must be class of tyoe NSObject
     
     init(name: String, sliders: [Slider]) {
         
@@ -19,11 +19,18 @@ class Filter: NSObject, NSTableViewDataSource {    // if want to use binding, mo
     }
     
     @objc dynamic var name: String
-    
-//    var filter: CIFilter {
-//        return CIFilter(name: name, parameters: <#T##[String : Any]?#>)
-//    }
     @objc dynamic var sliders: [Slider]
+    
+    var filter: CIFilter? { // build up a CIFilter using the sliders
+        
+        var parameters: [String : Any] = [:]
+
+        for slider in sliders {
+            parameters[slider.inputName] = slider.sliderValue
+        }
+        
+        return CIFilter(name: name, parameters: parameters)
+    }
     
     class Slider: NSObject {
         
@@ -47,12 +54,17 @@ class Filter: NSObject, NSTableViewDataSource {    // if want to use binding, mo
         }
     }
     
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return sliders.count
-    }
+    // MARK: - NSTableViewDataSource for slider table view
     
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return sliders[row]
-    }
+//    func numberOfRows(in tableView: NSTableView) -> Int {
+//        return sliders.count
+//    }
+//
+//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+//        return sliders[row]
+//    }
+    
+    // Basically, the issue is that if you have the same controller be a data source for two table views, it gets complicated as to which table view should get the data.
+    // So we avoid that problem by making the filters be the data source for the slider table view.
     
 }

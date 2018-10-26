@@ -769,6 +769,8 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
+                                                <binding destination="pnJ-mI-5Jh" name="content" keyPath="arrangedObjects" id="epF-WZ-oKJ"/>
+                                                <binding destination="pnJ-mI-5Jh" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="epF-WZ-oKJ" id="KuN-mH-9Zs"/>
                                                 <outlet property="dataSource" destination="XfG-lQ-9wD" id="up0-vl-Bmq"/>
                                                 <outlet property="delegate" destination="XfG-lQ-9wD" id="oyg-Oa-HE7"/>
                                             </connections>
@@ -837,8 +839,9 @@
                                                                         </textField>
                                                                         <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NJz-XO-Zad">
                                                                             <rect key="frame" x="81" y="-1" width="256" height="19"/>
-                                                                            <sliderCell key="cell" alignment="left" minValue="-1" maxValue="1" tickMarkPosition="above" sliderType="linear" id="tcl-G7-1zv"/>
+                                                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="-1" maxValue="1" tickMarkPosition="above" sliderType="linear" id="tcl-G7-1zv"/>
                                                                             <connections>
+                                                                                <action selector="updateImage:" target="XfG-lQ-9wD" id="Nm7-nP-t7j"/>
                                                                                 <binding destination="cIV-B8-sJo" name="maxValue" keyPath="objectValue.sliderMax" id="OXP-1U-w9H"/>
                                                                                 <binding destination="cIV-B8-sJo" name="minValue" keyPath="objectValue.sliderMin" previousBinding="OXP-1U-w9H" id="k0o-PO-5AG"/>
                                                                                 <binding destination="cIV-B8-sJo" name="value" keyPath="objectValue.sliderValue" previousBinding="k0o-PO-5AG" id="cEv-5n-9Nx"/>
@@ -865,6 +868,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="rRb-NK-bWM" name="content" keyPath="arrangedObjects" id="Cy7-wG-yCR"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -903,6 +909,17 @@
                         <outlet property="slidersTableView" destination="NBV-vo-SKF" id="3Nh-OS-hGC"/>
                     </connections>
                 </viewController>
+                <userDefaultsController representsSharedInstance="YES" id="eVL-ZO-ioD"/>
+                <arrayController id="pnJ-mI-5Jh" userLabel="FiltersArrayController">
+                    <connections>
+                        <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="self.filters" id="Rwd-Em-IPZ"/>
+                    </connections>
+                </arrayController>
+                <arrayController id="rRb-NK-bWM" userLabel="SlidersArrayController">
+                    <connections>
+                        <binding destination="pnJ-mI-5Jh" name="contentArray" keyPath="selection.sliders" id="0Ns-DF-pb6"/>
+                    </connections>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="75" y="692"/>
         </scene>
