@@ -759,7 +759,7 @@
                                                                             <rect key="frame" x="51" y="33" width="263" height="19"/>
                                                                             <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="6c4-cp-qaZ"/>
                                                                             <connections>
-                                                                                <action selector="processImage:" target="XfG-lQ-9wD" id="I6f-6S-TLk"/>
+                                                                                <action selector="updateImage:" target="XfG-lQ-9wD" id="I6f-6S-TLk"/>
                                                                                 <binding destination="Akk-Ei-nsI" name="maxValue" keyPath="objectValue.max" id="VB7-Sn-qpS"/>
                                                                                 <binding destination="Akk-Ei-nsI" name="minValue" keyPath="objectValue.min" previousBinding="VB7-Sn-qpS" id="PMq-zn-Vtd"/>
                                                                                 <binding destination="Akk-Ei-nsI" name="value" keyPath="objectValue.defaultValue" previousBinding="PMq-zn-Vtd" id="eLp-JB-J4r"/>

@@ -9,30 +9,31 @@
 import Cocoa
 
 class FilterViewController: NSViewController{
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         filtersTableView.selectRowIndexes(IndexSet(integer: 0), byExtendingSelection: false)
         
         
     }
-     @IBAction func openDocument(_ sender: Any?){
-       
+    @IBAction func openDocument(_ sender: Any?){
+        
         let openPanel = NSOpenPanel()
         openPanel.canChooseDirectories = true
         openPanel.allowsMultipleSelection = false
         openPanel.begin { (response) in
             if response == NSApplication.ModalResponse.OK {
                 let url = openPanel.urls.first!
-                self.imageView.image = NSImage(byReferencing: url)
+                self.originalImage = NSImage(byReferencing: url)
+                self.imageView.image = self.originalImage
             }
         }
     }
     
-     @IBAction func saveDocumentAs(_ sender: Any?){
-
+    @IBAction func saveDocumentAs(_ sender: Any?){
+        
     }
-    @IBAction func processImage(_ sender: NSSlider?){
+    @IBAction func updateImage(_ sender: NSSlider?){
         //sets input equal to the input being edited
         guard let sender = sender else {return}
         let inputRow = inputsTableView.row(for: sender)
@@ -54,8 +55,8 @@ class FilterViewController: NSViewController{
     }
     //MARK: - Private Properties
     private func filterImage(filter: Filter, input: Input, inputValue: Double)-> NSImage?{
-        guard let image = imageView.image,
-        let ciImage = image.ciImage() else {return nil}
+        guard let image = originalImage,
+            let ciImage = image.ciImage() else {return nil}
         let ciFilter = filter.filter
         ciFilter.setValue(ciImage, forKey: "inputImage")
         ciFilter.setValue(inputValue, forKey: input.name)
@@ -66,9 +67,11 @@ class FilterViewController: NSViewController{
         return NSImage(cgImage: outputCGImage, size: outputSize)
         
     }
-
+    
     //MARK: - Properties
     private let context = CIContext(options: nil)
+    
+    private var originalImage: NSImage?
     
     @IBOutlet weak var filtersTableView: NSTableView!
     @IBOutlet weak var inputsTableView: NSTableView!
@@ -78,6 +81,6 @@ class FilterViewController: NSViewController{
     @IBOutlet var inputsController: NSArrayController!
     @IBOutlet var filtersController: NSArrayController!
     
-    @objc let filters = [Filter(filterName: "CIColorControls"),
-                         Filter(filterName: "CIGaussianBlur")]
+    @objc let filters = [Filter(filterName: "CIGaussianBlur"),
+                         Filter(filterName: "CIColorControls")]
 }
