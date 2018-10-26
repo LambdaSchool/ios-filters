@@ -29,14 +29,15 @@ class FilterViewController: NSViewController {
                 self.imageView.image = NSImage(byReferencing: url)
             }
         }
-    
     }
     
      @IBAction func saveDocumentAs(_ sender: Any?){
     }
+    @IBOutlet var inputController: NSArrayController!
     //MARK: - Properties
+    @IBOutlet weak var filtersTableView: NSTableView!
     @IBOutlet weak var imageView: NSImageView!
-    
     @IBOutlet var entriesController: NSArrayController!
-    @objc let filters = [Filter(filterName: "CIGaussianBlur")]
+    @objc let filters = [Filter(filterName: "CIGaussianBlur"),
+                         Filter(filterName: "CIColorControls")]
 }

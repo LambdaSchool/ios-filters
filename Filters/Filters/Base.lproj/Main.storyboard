@@ -738,7 +738,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="Akk-Ei-nsI" customClass="FilterControlCell" customModule="Filters" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="300" height="95"/>
+                                                            <rect key="frame" x="1" y="1" width="310" height="95"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="goS-lp-Fr9">
@@ -751,6 +751,9 @@
                                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
+                                                                            <connections>
+                                                                                <binding destination="Akk-Ei-nsI" name="value" keyPath="objectValue.name" id="WaQ-9n-pvR"/>
+                                                                            </connections>
                                                                         </textField>
                                                                         <slider horizontalHuggingPriority="248" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fVC-Lk-cgz">
                                                                             <rect key="frame" x="51" y="33" width="263" height="19"/>
@@ -782,16 +785,16 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <binding destination="3Uj-6t-eWs" name="content" keyPath="arrangedObjects." id="EYc-5k-wf9"/>
+                                                <binding destination="B2Y-0f-AJ8" name="content" keyPath="arrangedObjects" id="9Jr-ab-OIq"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="nFF-vh-d1q">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="nFF-vh-d1q">
                                     <rect key="frame" x="1" y="404" width="313" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="XGT-Us-gHi">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="XGT-Us-gHi">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -851,16 +854,16 @@
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <binding destination="XfG-lQ-9wD" name="content" keyPath="entriesController.arrangedObjects" id="hDY-h9-euy"/>
+                                                <binding destination="3Uj-6t-eWs" name="content" keyPath="arrangedObjects" id="Jfk-XS-ntA"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="P0M-o0-Zao">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="P0M-o0-Zao">
                                     <rect key="frame" x="1" y="119" width="223" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="VAB-kc-D87">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="VAB-kc-D87">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -893,13 +896,20 @@
                     </view>
                     <connections>
                         <outlet property="entriesController" destination="3Uj-6t-eWs" id="cNN-L7-IJ3"/>
+                        <outlet property="filtersTableView" destination="N8X-kT-5Hx" id="24u-M8-PNP"/>
                         <outlet property="imageView" destination="445-y5-F5m" id="uVm-II-w5s"/>
+                        <outlet property="inputController" destination="B2Y-0f-AJ8" id="zmQ-TJ-kv3"/>
                     </connections>
                 </viewController>
                 <userDefaultsController representsSharedInstance="YES" id="fhF-F3-k0M"/>
                 <arrayController objectClassName="NSArray" automaticallyPreparesContent="YES" id="3Uj-6t-eWs">
                     <connections>
                         <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="filters" id="8Wq-uj-oEv"/>
+                    </connections>
+                </arrayController>
+                <arrayController id="B2Y-0f-AJ8">
+                    <connections>
+                        <binding destination="3Uj-6t-eWs" name="contentArray" keyPath="selection.inputs" id="t3b-mh-hdx"/>
                     </connections>
                 </arrayController>
             </objects>

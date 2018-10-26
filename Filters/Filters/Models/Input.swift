@@ -17,7 +17,7 @@ class Input: NSObject {
         self.max = dictionary["CIAttributeSliderMax"] as! NSNumber
         self.min = dictionary["CIAttributeSliderMin"] as! NSNumber
     }
-    let name:String
-    let max:NSNumber
-    let min:NSNumber
+    @objc let name:String
+    @objc let max:NSNumber
+    @objc let min:NSNumber
 }
