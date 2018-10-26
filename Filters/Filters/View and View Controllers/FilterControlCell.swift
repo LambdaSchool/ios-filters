@@ -9,9 +9,10 @@
 import Cocoa
 
 class FilterControlCell: NSTableCellView {
-
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
+    
+    @IBAction func changeSliderValue(_ sender: NSSlider) {
+        print(label.stringValue, slider.doubleValue)
+        slider.didChangeValue(forKey: "SliderValue")
     }
     
     @IBOutlet weak var label: NSTextField!

@@ -758,6 +758,12 @@
                                                                         <slider horizontalHuggingPriority="248" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fVC-Lk-cgz">
                                                                             <rect key="frame" x="51" y="33" width="263" height="19"/>
                                                                             <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="6c4-cp-qaZ"/>
+                                                                            <connections>
+                                                                                <action selector="processImage:" target="XfG-lQ-9wD" id="I6f-6S-TLk"/>
+                                                                                <binding destination="Akk-Ei-nsI" name="maxValue" keyPath="objectValue.max" id="VB7-Sn-qpS"/>
+                                                                                <binding destination="Akk-Ei-nsI" name="minValue" keyPath="objectValue.min" previousBinding="VB7-Sn-qpS" id="PMq-zn-Vtd"/>
+                                                                                <binding destination="Akk-Ei-nsI" name="value" keyPath="objectValue.defaultValue" previousBinding="PMq-zn-Vtd" id="eLp-JB-J4r"/>
+                                                                            </connections>
                                                                         </slider>
                                                                     </subviews>
                                                                     <visibilityPriorities>
@@ -809,7 +815,7 @@
                                     <rect key="frame" x="1" y="0.0" width="373" height="149"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="a7U-Kb-5Ih" viewBased="YES" id="CSs-Jh-Cse">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="a7U-Kb-5Ih" viewBased="YES" id="CSs-Jh-Cse">
                                             <rect key="frame" x="0.0" y="0.0" width="373" height="126"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -896,10 +902,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="entriesController" destination="3Uj-6t-eWs" id="cNN-L7-IJ3"/>
-                        <outlet property="filtersTableView" destination="N8X-kT-5Hx" id="24u-M8-PNP"/>
+                        <outlet property="filtersController" destination="3Uj-6t-eWs" id="cNN-L7-IJ3"/>
+                        <outlet property="filtersTableView" destination="CSs-Jh-Cse" id="2Kh-VH-VFx"/>
                         <outlet property="imageView" destination="445-y5-F5m" id="uVm-II-w5s"/>
-                        <outlet property="inputController" destination="B2Y-0f-AJ8" id="zmQ-TJ-kv3"/>
+                        <outlet property="inputsController" destination="B2Y-0f-AJ8" id="zmQ-TJ-kv3"/>
+                        <outlet property="inputsTableView" destination="N8X-kT-5Hx" id="hc0-r0-ssx"/>
                     </connections>
                 </viewController>
                 <userDefaultsController representsSharedInstance="YES" id="fhF-F3-k0M"/>

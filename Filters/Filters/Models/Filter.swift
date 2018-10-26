@@ -14,7 +14,7 @@ import Cocoa
             fatalError("CIFilter cannot be initialized")
         }
         self.filter = filter
-        self.name = name
+        self.name = filter.attributes["CIAttributeFilterDisplayName"] as! String
         var inputs = [Input]()
         let inputKeys = filter.inputKeys
         for inputKey in inputKeys{
